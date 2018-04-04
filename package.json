@@ -1,5 +1,5 @@
 {
-  "name": "vue-perfect-accordion",
+  "name": "vue-faq-accordion",
   "version": "0.0.1",
   "description": "Simple and smooth vue accordion component",
   "main": "index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gerasimvol/vue-perfect-accordion.git"
+    "url": "git+https://github.com/gerasimvol/vue-faq-accordion.git"
   },
   "keywords": [
     "vue",
@@ -23,7 +23,7 @@
   "author": "gerasim_vol",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gerasimvol/vue-perfect-accordion/issues"
+    "url": "https://github.com/gerasimvol/vue-faq-accordion/issues"
   },
-  "homepage": "https://github.com/gerasimvol/vue-perfect-accordion#readme"
+  "homepage": "https://github.com/gerasimvol/vue-faq-accordion#readme"
 }
