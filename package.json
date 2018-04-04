@@ -1,0 +1,29 @@
+{
+  "name": "vue-perfect-accordion",
+  "version": "0.0.1",
+  "description": "Simple and smooth vue accordion component",
+  "main": "index.js",
+  "dependencies": {
+    "vue2-transitions": "^0.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerasimvol/vue-perfect-accordion.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "accordion",
+    "faq"
+  ],
+  "author": "gerasim_vol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gerasimvol/vue-perfect-accordion/issues"
+  },
+  "homepage": "https://github.com/gerasimvol/vue-perfect-accordion#readme"
+}
