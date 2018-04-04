@@ -66,38 +66,35 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~mixins";
-  @import "~colors";
 
   .accordion {
     &__title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      @include font(2.4rem);
-      color: $c--white;
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      color: white;
       padding: 25px 0;
-      border-bottom: 1px solid $c--white;
+      border-bottom: 1px solid white;
       cursor: pointer;
 
       &-text {
         margin-right: 10px;
       }
-
-      @include tablet {
-        @include font(2rem);
-      }
     }
 
     &__value {
-      @include font(1.6rem, 1.5);
-      color: $c--white-secondary;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      color: lightgray;
       padding: 25px 0 0 25px;
     }
 
     &__toggle-button {
       position: relative;
-      @include size(16px);
+      width: 16px;
+      height: 16px;
       transition: all 0.3s;
       transform-origin: 50% 50%;
       padding-left: 16px;
@@ -111,8 +108,9 @@
         content: '';
         position: absolute;
         left: 0;
-        @include size(100%, 2px);
-        background: $c--blue;
+        width: 100%;
+        height: 2px;
+        background: blue;
       }
 
       &::before {
