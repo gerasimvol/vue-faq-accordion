@@ -1,4 +1,4 @@
-# test_app
+# Vue faq demo section
 
 > A Vue.js project
 
