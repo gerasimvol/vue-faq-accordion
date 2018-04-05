@@ -1,12 +1,12 @@
 <template>
-<section class="faq anchor-faq container section">
+<section class="faq">
   <div class="faq-wrapper">
-    <nav class="faq__nav">
+    <nav v-if="hasNavigation" class="faq__nav">
       <div
-          v-for="(category, i) in categories"
-          :key="`category-${i}`"
-          :class="generateCategoryClasses(category)"
-          @click="makeActiveCategory(category)"
+        v-for="(category, i) in categories"
+        :key="`category-${i}`"
+        :class="generateCategoryClasses(category)"
+        @click="makeActiveCategory(category)"
       >
         {{ category }}
       </div>
@@ -79,7 +79,11 @@
         return uniqueCategories
       },
       categoryItems () {
-        return this.items.filter(item => item[this.questionsCategoryProperty] === this.activeTab)
+        return this.items
+          .filter(item => item[this.questionsCategoryProperty] === this.activeTab)
+      },
+      hasNavigation () {
+        return !!this.categories[0]
       }
     },
     methods: {
@@ -130,6 +134,7 @@
   }
 
   $active-color: #D50000;
+  $border-color: #9E9E9E;
 
   .faq {
     width: 100%;
@@ -148,7 +153,7 @@
     &__nav {
       display: flex;
       justify-content: space-between;
-      border: 2px solid #cfd8dc;
+      border: 2px solid $border-color;
       border-radius: 5px;
     }
 
@@ -158,9 +163,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-right: 2px solid #cfd8dc;
+      border-right: 2px solid $border-color;
       cursor: pointer;
-      color: black;
       font-weight: 600;
       transition: all 0.3s;
       text-align: center;
@@ -200,12 +204,12 @@
   }
 
   .accordion {
-    border: 2px solid #cfd8dc;
+    border: 2px solid $border-color;
     border-radius: 5px;
     margin-top: 15px;
 
     &__item {
-      border-bottom: 2px solid #cfd8dc;
+      border-bottom: 2px solid $border-color;
 
       &:last-child {
         border-bottom: none;
@@ -216,9 +220,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: black;
       padding: 25px;
-      
       cursor: pointer;
       transition: all 0.3s;
 
@@ -239,7 +241,6 @@
     }
 
     &__value {
-      color: black;
       padding: 0 25px 25px 25px;
     }
 
