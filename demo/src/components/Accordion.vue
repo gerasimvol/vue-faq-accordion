@@ -126,7 +126,10 @@
   button {
     border: none;
     background: none;
+    outline: none;
   }
+
+  $active-color: #D50000;
 
   .faq {
     width: 100%;
@@ -145,7 +148,7 @@
     &__nav {
       display: flex;
       justify-content: space-between;
-      border: 1px solid black;
+      border: 2px solid #cfd8dc;
       border-radius: 5px;
     }
 
@@ -155,7 +158,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-right: 1px solid black;
+      border-right: 2px solid #cfd8dc;
       cursor: pointer;
       color: black;
       font-weight: 600;
@@ -164,11 +167,11 @@
       user-select: none;
 
       &_active {
-        background: linear-gradient(190deg, black 15%, darkblack 75%);
+        color: $active-color;
       }
 
       &:hover {
-        color: rgba(255, 255, 255, 0.8);
+        color: $active-color;
       }
 
       &:last-child {
@@ -197,14 +200,38 @@
   }
 
   .accordion {
+    border: 2px solid #cfd8dc;
+    border-radius: 5px;
+    margin-top: 15px;
+
+    &__item {
+      border-bottom: 2px solid #cfd8dc;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
     &__title {
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: black;
-      padding: 25px 0;
-      border-bottom: 1px solid black;
+      padding: 25px;
+      
       cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $active-color;
+
+        .accordion__toggle-button {
+          &::before,
+          &::after {
+            background: $active-color;
+          }
+        }
+      }
 
       &-text {
         margin-right: 10px;
@@ -213,7 +240,7 @@
 
     &__value {
       color: black;
-      padding: 25px 0 0 25px;
+      padding: 0 25px 25px 25px;
     }
 
     &__toggle-button {
@@ -223,6 +250,7 @@
       transition: all 0.3s;
       transform-origin: 50% 50%;
       padding-left: 16px;
+      cursor: pointer;
 
       &_active {
         transform: rotate(45deg);
@@ -235,6 +263,7 @@
         left: 0;
         width: 100%;
         height: 2px;
+        transition: all 0.3s;
         background: black;
       }
 
