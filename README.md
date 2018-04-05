@@ -4,7 +4,8 @@
 ![FAQ Section demo](https://github.com/gerasimvol/vue-faq-accordion/blob/master/demo.gif)
 
 [Live demo here](http://vue-faq-accordion.surge.sh/)
-<br/>Run local demo:
+<br/><br/>
+#### Run local demo:
 ```
 cd demo
 npm i
