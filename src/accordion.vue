@@ -41,7 +41,7 @@
   import { CollapseTransition } from 'vue2-transitions'
 
   export default {
-    name: 'Accordion',
+    name: 'VueFaqAccordion',
     components: {
       CollapseTransition
     },

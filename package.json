@@ -1,14 +1,34 @@
 {
   "name": "vue-faq-accordion",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Simple and smooth vue accordion component",
-  "main": "index.js",
+  "main": "dist/vue-faq-accordion.js",
+  "scripts": {
+    "build": "rimraf ./dist && webpack --config ./webpack.config.js"
+  },
   "dependencies": {
     "vue2-transitions": "^0.2.3"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "babel-runtime": "^6.9.2",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.8.3",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^7.0.1",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.21.0",
+    "vue": "^2.2.1",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^11.1.4",
+    "vue-style-loader": "^2.0.5",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^1.13.1",
+    "webpack-merge": "^4.1.0"
   },
   "repository": {
     "type": "git",

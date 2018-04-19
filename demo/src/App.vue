@@ -10,7 +10,9 @@
 </template>
 
 <script>
-  import FaqAccordion from './components/Accordion'
+  // import FaqAccordion from './components/Accordion'
+  import FaqAccordion from 'vue-faq-accordion'
+  
   export default {
     name: 'App',
     components: {
