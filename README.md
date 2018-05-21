@@ -5,6 +5,9 @@
 
 [Live demo here](http://vue-faq-accordion.surge.sh/)
 <br/><br/>
+#### Usage:
+just use component from `src/accordion.vue`
+<br/><br/>
 #### Run local demo:
 ```
 cd demo
