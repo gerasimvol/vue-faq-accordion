@@ -6,7 +6,7 @@
 [Live demo here](http://vue-faq-accordion.surge.sh/)
 <br/><br/>
 #### Usage:
-`npm i vue2-transitions`
+`npm i vue2-transitions`<br/>
 just use component from `src/accordion.vue`
 <br/><br/>
 #### Run local demo:
