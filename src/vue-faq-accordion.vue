@@ -1,5 +1,5 @@
 <template>
-<section class="faq">
+<section class="faq" ref="rootEl">
   <div class="faq-wrapper">
     <nav v-if="hasNavigation" class="faq__nav">
       <div
@@ -68,6 +68,18 @@
       questionsCategoryProperty: {
         type: String,
         default: 'category'
+      },
+      activeColor: {
+        type: String,
+        default: '#D50000'
+      },
+      borderColor: {
+        type: String,
+        default: '#9E9E9E'
+      },
+      fontColor: {
+        type: String,
+        default: '#000000'
       }
     },
     computed: {
@@ -101,6 +113,8 @@
         ]
       },
       makeActiveCategory (category) {
+        if (this.activeTab === category) return
+
         this.showAccordion = false
         this.activeTab = category
         this.activeQuestionIndex = null
@@ -116,6 +130,11 @@
             : null
         ]
       }
+    },
+    mounted () {
+      this.$refs.rootEl.style.setProperty('--active-color', this.activeColor)
+      this.$refs.rootEl.style.setProperty('--border-color', this.borderColor)
+      this.$refs.rootEl.style.setProperty('--font-color', this.fontColor)
     }
   }
 </script>
@@ -132,9 +151,6 @@
     background: none;
     outline: none;
   }
-
-  $active-color: #D50000;
-  $border-color: #9E9E9E;
 
   .faq {
     width: 100%;
@@ -153,7 +169,7 @@
     &__nav {
       display: flex;
       justify-content: space-between;
-      border: 2px solid $border-color;
+      border: 2px solid var(--border-color);
       border-radius: 5px;
     }
 
@@ -163,19 +179,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-right: 2px solid $border-color;
+      border-right: 2px solid var(--border-color);
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s;
       text-align: center;
       user-select: none;
+      color: var(--font-color);
 
       &_active {
-        color: $active-color;
+        color: var(--active-color);
       }
 
       &:hover {
-        color: $active-color;
+        color: var(--active-color);
       }
 
       &:last-child {
@@ -204,12 +221,12 @@
   }
 
   .accordion {
-    border: 2px solid $border-color;
+    border: 2px solid var(--border-color);
     border-radius: 5px;
     margin-top: 15px;
 
     &__item {
-      border-bottom: 2px solid $border-color;
+      border-bottom: 2px solid var(--border-color);
 
       &:last-child {
         border-bottom: none;
@@ -223,14 +240,15 @@
       padding: 25px;
       cursor: pointer;
       transition: all 0.3s;
+      color: var(--font-color);
 
       &:hover {
-        color: $active-color;
+        color: var(--active-color);
 
         .accordion__toggle-button {
           &::before,
           &::after {
-            background: $active-color;
+            background: var(--active-color);
           }
         }
       }
@@ -242,6 +260,8 @@
 
     &__value {
       padding: 0 25px 25px 25px;
+      text-align: left;
+      color: var(--font-color);
     }
 
     &__toggle-button {
