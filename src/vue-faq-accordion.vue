@@ -19,7 +19,7 @@
           v-for="(item, i) in categoryItems"
           :key="`accordion-item-${i}`"
         >
-          <div class="accordion__title" @click="makeActive(i)">
+          <div :class="generateQuestionClasses(i)" @click="makeActive(i)">
             <p class="accordion__title-text">{{ item[questionProperty] }}</p>
             <button :class="generateButtonClasses(i)"></button>
           </div>
@@ -133,6 +133,14 @@
           'accordion__toggle-button',
           this.activeQuestionIndex === buttonIndex
             ? 'accordion__toggle-button_active'
+            : null
+        ]
+      },
+      generateQuestionClasses (questionIndex) {
+        return [
+          'accordion__title',
+          this.activeQuestionIndex === questionIndex
+            ? 'accordion__title_active'
             : null
         ]
       },
