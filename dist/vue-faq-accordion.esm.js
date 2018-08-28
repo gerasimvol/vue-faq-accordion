@@ -1,0 +1,120 @@
+import { CollapseTransition } from 'vue2-transitions';
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css="*[data-v-36e025b4] { box-sizing: border-box; margin: 0; padding: 0; } button[data-v-36e025b4] { border: none; background: none; outline: none; } .faq[data-v-36e025b4] { width: 100%; padding: 0 10px; } .faq-wrapper[data-v-36e025b4] { max-width: 825px; margin: 0 auto; } .faq__title[data-v-36e025b4] { text-align: center; margin-bottom: 25px; } .faq__nav[data-v-36e025b4] { display: flex; justify-content: space-between; border: 2px solid #9E9E9E; border-radius: 5px; } .faq__nav-item[data-v-36e025b4] { height: 60px; flex: 1; display: flex; justify-content: center; align-items: center; border-right: 2px solid #9E9E9E; cursor: pointer; font-weight: 600; transition: all 0.3s; text-align: center; user-select: none; } .faq__nav-item_active[data-v-36e025b4] { color: #D50000; } .faq__nav-item[data-v-36e025b4]:hover { color: #D50000; } .faq__nav-item[data-v-36e025b4]:last-child { border-right: none; } .faq__accordion[data-v-36e025b4] { min-height: 250px; } .accordion-fade-slide-enter-active[data-v-36e025b4], .accordion-fade-slide-leave-active[data-v-36e025b4] { transition: all 0.3s; } .accordion-fade-slide-enter[data-v-36e025b4] { transform: translateY(-25px); opacity: 0; } .accordion-fade-slide-leave-to[data-v-36e025b4] { transform: translateY(25px); opacity: 0; } .accordion[data-v-36e025b4] { border: 2px solid #9E9E9E; border-radius: 5px; margin-top: 15px; } .accordion__item[data-v-36e025b4] { border-bottom: 2px solid #9E9E9E; } .accordion__item[data-v-36e025b4]:last-child { border-bottom: none; } .accordion__title[data-v-36e025b4] { display: flex; justify-content: space-between; align-items: center; padding: 25px; cursor: pointer; transition: all 0.3s; } .accordion__title[data-v-36e025b4]:hover { color: #D50000; } .accordion__title:hover .accordion__toggle-button[data-v-36e025b4]::before, .accordion__title:hover .accordion__toggle-button[data-v-36e025b4]::after { background: #D50000; } .accordion__title-text[data-v-36e025b4] { margin-right: 10px; } .accordion__value[data-v-36e025b4] { padding: 0 25px 25px 25px; } .accordion__toggle-button[data-v-36e025b4] { position: relative; width: 16px; height: 16px; transition: all 0.3s; transform-origin: 50% 50%; padding-left: 16px; cursor: pointer; } .accordion__toggle-button_active[data-v-36e025b4] { transform: rotate(45deg); } .accordion__toggle-button[data-v-36e025b4]::before, .accordion__toggle-button[data-v-36e025b4]::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; transition: all 0.3s; background: black; } .accordion__toggle-button[data-v-36e025b4]::before { transform: rotate(90deg); } "; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+
+var component = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"faq"},[_c('div',{staticClass:"faq-wrapper"},[(_vm.hasNavigation)?_c('nav',{staticClass:"faq__nav"},_vm._l((_vm.categories),function(category,i){return _c('div',{key:("category-" + i),class:_vm.generateCategoryClasses(category),on:{"click":function($event){_vm.makeActiveCategory(category);}}},[_vm._v(" "+_vm._s(category)+" ")])})):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"accordion-fade-slide","mode":"out-in"}},[(_vm.showAccordion)?_c('div',{staticClass:"accordion"},_vm._l((_vm.categoryItems),function(item,i){return _c('div',{key:("accordion-item-" + i),staticClass:"accordion__item"},[_c('div',{staticClass:"accordion__title",on:{"click":function($event){_vm.makeActive(i);}}},[_c('p',{staticClass:"accordion__title-text"},[_vm._v(_vm._s(item[_vm.questionProperty]))]),_vm._v(" "),_c('button',{class:_vm.generateButtonClasses(i)})]),_vm._v(" "),_c('collapse-transition',[(i === _vm.activeQuestionIndex)?_c('div',[_c('p',{staticClass:"accordion__value"},[_vm._v(" "+_vm._s(item[_vm.answerProperty])+" ")])]):_vm._e()])],1)})):_vm._e()])],1)])},staticRenderFns: [],_scopeId: 'data-v-36e025b4',
+  name: 'VueFaqAccordion',
+  components: {
+    CollapseTransition: CollapseTransition
+  },
+  data: function data () {
+    return {
+      activeTab: '',
+      activeQuestionIndex: null,
+      showAccordion: true
+    }
+  },
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    questionProperty: {
+      type: String,
+      default: 'title'
+    },
+    answerProperty: {
+      type: String,
+      default: 'value'
+    },
+    questionsCategoryProperty: {
+      type: String,
+      default: 'category'
+    }
+  },
+  computed: {
+    categories: function categories () {
+      var this$1 = this;
+
+      var uniqueCategories = this.items
+        .map(function (item) { return item[this$1.questionsCategoryProperty]; })
+        .filter(function (category, index, categories) { return categories.indexOf(category) === index; });
+      this.activeTab = uniqueCategories[0];
+      return uniqueCategories
+    },
+    categoryItems: function categoryItems () {
+      var this$1 = this;
+
+      return this.items
+        .filter(function (item) { return item[this$1.questionsCategoryProperty] === this$1.activeTab; })
+    },
+    hasNavigation: function hasNavigation () {
+      return !!this.categories[0]
+    }
+  },
+  methods: {
+    makeActive: function makeActive (itemIndex) {
+      this.activeQuestionIndex === itemIndex
+        ? this.activeQuestionIndex = null
+        : this.activeQuestionIndex = itemIndex;
+    },
+    generateButtonClasses: function generateButtonClasses (buttonIndex) {
+      return [
+        'accordion__toggle-button',
+        this.activeQuestionIndex === buttonIndex
+          ? 'accordion__toggle-button_active'
+          : null
+      ]
+    },
+    makeActiveCategory: function makeActiveCategory (category) {
+      var this$1 = this;
+
+      this.showAccordion = false;
+      this.activeTab = category;
+      this.activeQuestionIndex = null;
+      setTimeout( function () {
+        this$1.showAccordion = true;
+      }, 300 );
+    },
+    generateCategoryClasses: function generateCategoryClasses (category) {
+      return [
+        'faq__nav-item',
+        this.activeTab === category
+          ? 'faq__nav-item_active'
+          : null
+      ]
+    }
+  }
+};
+
+// Import vue component
+
+// install function executed by Vue.use()
+function install(Vue) {
+	if (install.installed) { return; }
+	install.installed = true;
+	Vue.component('VueFaqAccordion', component);
+}
+
+// Create module definition for Vue.use()
+var plugin = {
+	install: install,
+};
+
+// To auto-install when vue is found
+var GlobalVue = null;
+if (typeof window !== 'undefined') {
+	GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+	GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+	GlobalVue.use(plugin);
+}
+
+// It's possible to expose named exports when writing components that can
+// also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
+// export const RollupDemoDirective = component;
+
+export default component;
+export { install };
