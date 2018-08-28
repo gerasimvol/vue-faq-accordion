@@ -53,30 +53,54 @@
       }
     },
     props: {
+      /**
+       * Array of items
+       * Object style {questionProperty: string, answerProperty: string, tabName: string}
+       * You can change object keys names using other props (questionProperty, answerProperty, tabName)
+       */
       items: {
         type: Array,
         required: true
       },
+      /**
+       * Key name of object in items array for specifying title of question
+       */
       questionProperty: {
         type: String,
         default: 'title'
       },
+      /**
+       * Key name of object in items array for specifying content text of open question
+       */
       answerProperty: {
         type: String,
         default: 'value'
       },
-      questionsCategoryProperty: {
+      /**
+       * Key name of object in items array for specifying navigation tab name
+       */
+      tabName: {
         type: String,
         default: 'category'
       },
+      /**
+       * Color for hover and active tab/question
+       * possible values: 'red', '#F00', 'rgb(255, 0, 0)'
+       */
       activeColor: {
         type: String,
         default: '#D50000'
       },
+      /**
+       * Color for borders
+       */
       borderColor: {
         type: String,
         default: '#9E9E9E'
       },
+      /**
+       * Color for fonts
+       */
       fontColor: {
         type: String,
         default: '#000000'
@@ -85,14 +109,14 @@
     computed: {
       categories () {
         const uniqueCategories = this.items
-          .map(item => item[this.questionsCategoryProperty])
+          .map(item => item[this.tabName])
           .filter((category, index, categories) => categories.indexOf(category) === index)
         this.activeTab = uniqueCategories[0]
         return uniqueCategories
       },
       categoryItems () {
         return this.items
-          .filter(item => item[this.questionsCategoryProperty] === this.activeTab)
+          .filter(item => item[this.tabName] === this.activeTab)
       },
       hasNavigation () {
         return !!this.categories[0]
@@ -242,6 +266,10 @@
       transition: all 0.3s;
       color: var(--font-color);
 
+      &_active {
+        color: var(--active-color);
+      }
+
       &:hover {
         color: var(--active-color);
 
@@ -273,10 +301,6 @@
       padding-left: 16px;
       cursor: pointer;
 
-      &_active {
-        transform: rotate(45deg);
-      }
-
       &::before,
       &::after {
         content: '';
@@ -290,6 +314,15 @@
 
       &::before {
         transform: rotate(90deg);
+      }
+
+      &_active {
+        transform: rotate(45deg);
+
+        &::before,
+        &::after {
+          background: var(--active-color);
+        }
       }
     }
   }

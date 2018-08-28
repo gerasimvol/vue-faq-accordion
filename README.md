@@ -1,17 +1,15 @@
 # vue-faq-accordion
-#### Simple and smooth vue accordion. Perfect for your FAQ section.
+
+
+[![npm](https://img.shields.io/npm/v/vue-faq-accordion.svg)](vue-faq-accordion) ![npm](https://img.shields.io/npm/dt/vue-faq-accordion.svg)
+
+
+#### 🗃 Simple and smooth vue accordion. Perfect for your FAQ section.
 
 ![FAQ Section demo](https://github.com/gerasimvol/vue-faq-accordion/blob/master/demo.gif)
 
-[Live demo here](http://vue-faq-accordion.surge.sh/)
-<br/><br/>
-#### Usage:
-`npm i vue2-transitions`<br/>
-just use component from `src/accordion.vue`
-<br/><br/>
-#### Run local demo:
-```
-cd demo
-npm i
-npm run dev
-```
+#### 💡 [Live demo here](http://vue-faq-accordion.surge.sh/)
+
+
+
+
