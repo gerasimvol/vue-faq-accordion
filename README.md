@@ -1,7 +1,7 @@
 # vue-faq-accordion
 
 
-[![npm](https://img.shields.io/npm/v/vue-faq-accordion.svg)](vue-faq-accordion) ![npm](https://img.shields.io/npm/dt/vue-faq-accordion.svg)
+[![npm](https://img.shields.io/npm/v/vue-faq-accordion.svg)](vue-faq-accordion) 
 
 
 #### 🗃 Simple and smooth vue accordion. Perfect for your FAQ section.
