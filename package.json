@@ -25,5 +25,21 @@
     "rollup-plugin-vue": "^3.0.0",
     "vue": "^2.5.16",
     "vue-template-compiler": "^2.5.17"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerasimvol/vue-faq-accordion.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "accordion",
+    "faq"
+  ],
+  "author": "gerasim_vol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gerasimvol/vue-faq-accordion/issues"
+  },
+  "homepage": "https://github.com/gerasimvol/vue-faq-accordion#readme"
 }
