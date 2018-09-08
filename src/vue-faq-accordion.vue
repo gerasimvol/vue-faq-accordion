@@ -5,29 +5,26 @@
       <div
         v-for="(category, i) in categories"
         :key="`category-${i}`"
+        v-html="category"
         :class="generateCategoryClasses(category)"
         @click="makeActiveCategory(category)"
-      >
-        {{ category }}
-      </div>
+      ></div>
     </nav>
 
     <transition name="accordion-fade-slide" mode="out-in">
-      <div class="accordion" v-if="showAccordion">
+      <div v-if="showAccordion" class="accordion">
         <div
           class="accordion__item"
           v-for="(item, i) in categoryItems"
           :key="`accordion-item-${i}`"
         >
           <div :class="generateQuestionClasses(i)" @click="makeActive(i)">
-            <p class="accordion__title-text">{{ item[questionProperty] }}</p>
+            <p class="accordion__title-text" v-html="item[questionProperty]"></p>
             <button :class="generateButtonClasses(i)"></button>
           </div>
             <collapse-transition>
               <div v-if="i === activeQuestionIndex">
-                <p class="accordion__value">
-                  {{ item[answerProperty] }}
-                </p>
+                <p class="accordion__value" v-html="item[answerProperty]"></p>
               </div>
             </collapse-transition>
         </div>
