@@ -14,6 +14,8 @@
 
 ```bash
 npm i vue-faq-accordion
+```
+```bash
 yarn add vue-faq-accordion
 ```
 
