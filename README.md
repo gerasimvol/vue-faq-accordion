@@ -8,7 +8,7 @@
 
 ![FAQ Section demo](https://media.giphy.com/media/XKU7gqsiq2KRAPoHZm/giphy.gif)
 
-#### 💡 [Live demo here](https://codesandbox.io/s/1zl0ol4z7j)
+#### 💡 [Live demo here](https://codesandbox.io/s/1zl0ol4z7j?module=%2Fsrc%2FApp.vue)
 
 ### 🛠 Install
 
