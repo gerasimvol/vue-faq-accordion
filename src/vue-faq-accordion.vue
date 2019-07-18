@@ -24,7 +24,9 @@
           </div>
             <collapse-transition>
               <div v-if="i === activeQuestionIndex">
-                <p class="accordion__value" v-html="item[answerProperty]"></p>
+                <slot v-bind:item="item">
+                  <p class="accordion__value" v-html="item[answerProperty]"></p>
+                </slot>
               </div>
             </collapse-transition>
         </div>
@@ -121,9 +123,7 @@
     },
     methods: {
       makeActive (itemIndex) {
-        this.activeQuestionIndex === itemIndex
-          ? this.activeQuestionIndex = null
-          : this.activeQuestionIndex = itemIndex
+        this.activeQuestionIndex = this.activeQuestionIndex === itemIndex ? null : itemIndex
       },
       generateButtonClasses (buttonIndex) {
         return [
