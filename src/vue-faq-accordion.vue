@@ -187,7 +187,6 @@
 
     &-wrapper {
       max-width: 825px;
-      margin: 0 auto;
     }
 
     &__title {
