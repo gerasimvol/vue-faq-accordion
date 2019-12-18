@@ -47,7 +47,8 @@
   export default {
     name: 'VueFaqAccordion',
     components: {
-      CollapseTransition
+      CollapseTransition,
+      VueMarkdown
     },
     data () {
       return {
