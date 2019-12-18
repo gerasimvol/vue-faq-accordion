@@ -15,6 +15,7 @@
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-faq-accordion.min.js"
   },
   "dependencies": {
+    "vue-markdown": "^2.2.4",
     "vue2-transitions": "^0.2.3"
   },
   "devDependencies": {
