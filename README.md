@@ -125,3 +125,9 @@ props: {
   
 }
 ```
+### 🎊 Events
+
+*  `makeActiveCategory`: Clicked category
+  
+*  `makeActive`: Clicked question and its index
+  

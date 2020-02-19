@@ -124,6 +124,7 @@
     methods: {
       makeActive (itemIndex) {
         this.activeQuestionIndex = this.activeQuestionIndex === itemIndex ? null : itemIndex
+        this.$emit('makeActive', this.items[itemIndex], itemIndex)
       },
       generateButtonClasses (buttonIndex) {
         return [
@@ -149,6 +150,7 @@
         this.activeQuestionIndex = null
         setTimeout( () => {
           this.showAccordion = true
+          this.$emit('makeActiveCategory', category)
         }, 300 )
       },
       generateCategoryClasses (category) {
