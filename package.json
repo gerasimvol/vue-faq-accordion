@@ -1,6 +1,6 @@
 {
   "name": "vue-faq-accordion",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "",
   "main": "dist/vue-faq-accordion.umd.js",
   "module": "dist/vue-faq-accordion.esm.js",
