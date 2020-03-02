@@ -7,7 +7,7 @@
         :key="`category-${i}`"
         v-html="category"
         :class="generateCategoryClasses(category)"
-        @click="makeActiveCategory(category)"
+        @click="makeActiveCategory(category, i)"
       ></div>
     </nav>
 
@@ -41,9 +41,11 @@
 
   export default {
     name: 'VueFaqAccordion',
+
     components: {
       CollapseTransition
     },
+
     data () {
       return {
         activeTab: '',
@@ -51,6 +53,7 @@
         showAccordion: true
       }
     },
+
     props: {
       /**
        * Array of items
@@ -105,6 +108,7 @@
         default: '#000000'
       }
     },
+
     computed: {
       categories () {
         const uniqueCategories = this.items
@@ -121,9 +125,11 @@
         return !!this.categories[0]
       }
     },
+
     methods: {
       makeActive (itemIndex) {
         this.activeQuestionIndex = this.activeQuestionIndex === itemIndex ? null : itemIndex
+        this.$emit('itemSelect', { itemIndex })
       },
       generateButtonClasses (buttonIndex) {
         return [
@@ -141,13 +147,14 @@
             : null
         ]
       },
-      makeActiveCategory (category) {
+      makeActiveCategory (category, categoryIndex) {
         if (this.activeTab === category) return
 
         this.showAccordion = false
         this.activeTab = category
         this.activeQuestionIndex = null
         setTimeout( () => {
+          this.$emit('categorySelect', { categoryIndex })
           this.showAccordion = true
         }, 300 )
       },
@@ -160,6 +167,7 @@
         ]
       }
     },
+
     mounted () {
       this.$refs.rootEl.style.setProperty('--active-color', this.activeColor)
       this.$refs.rootEl.style.setProperty('--border-color', this.borderColor)

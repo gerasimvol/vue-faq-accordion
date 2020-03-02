@@ -125,3 +125,10 @@ props: {
   
 }
 ```
+
+### 🔥 Events
+
+| Event | Payload | Description |
+| -| - | -|
+| categorySelect | `{ categoryIndex }` | Emitted on category change |
+| itemSelect | `{ itemIndex }` | Emitted on item open |
