@@ -1,9 +1,34 @@
 <template>
-  <VueFaqAccordion
-    @categorySelect="onCategorySelect"
-    @itemSelect="onItemSelect"
-    :items="myItems"
-  />
+  <div>
+    <!-- DEFAULT -->
+    <VueFaqAccordion
+      @categorySelect="onCategorySelect"
+      @itemSelect="onItemSelect"
+      :items="myItems"
+    />
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- WITH SCOPED SLOTS -->
+    <VueFaqAccordion
+        @categorySelect="onCategorySelect"
+        @itemSelect="onItemSelect"
+        :items="myItems"
+        v-slot="itemData"
+    >
+      <!-- any html -->
+      <!-- and item data if available via itemData -->
+      <!-- don't add margins to this element (animation become choppy) -->
+      <small>{{ itemData }}</small>
+    </VueFaqAccordion>
+  </div>
 </template>
 
 <script>

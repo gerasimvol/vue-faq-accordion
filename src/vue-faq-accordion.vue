@@ -24,8 +24,8 @@
           </div>
             <collapse-transition>
               <div v-if="i === activeQuestionIndex">
-                <slot v-bind:item="item">
-                  <p class="accordion__value" v-html="item[answerProperty]"></p>
+                <slot v-bind="item">
+                  <div class="accordion__value" v-html="item[answerProperty]"></div>
                 </slot>
               </div>
             </collapse-transition>

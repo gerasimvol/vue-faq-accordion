@@ -132,3 +132,17 @@ props: {
 | -| - | -|
 | categorySelect | `{ categoryIndex }` | Emitted on category change |
 | itemSelect | `{ itemIndex }` | Emitted on item open |
+
+### 📎 Slots
+
+You can define own item markup via slots:
+```vue
+<VueFaqAccordion
+  :items="myItems"
+  v-slot="itemData"
+>
+  <img :src="itemData.imageSrc">
+</VueFaqAccordion>
+```
+- item data is available via scoped slot (v-slot="itemData")
+- don't add margins to this element (animation become choppy)
