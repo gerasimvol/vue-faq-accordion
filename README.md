@@ -122,6 +122,23 @@ props: {
   fontColor: {
     type: String,
     default: '#000000'
+  },
+
+  /**
+   * Opened by default tabName (category)
+   */
+  initialTab: {
+    type: String,
+    default: null
+  },
+
+  /**
+   * Opened by default question
+   * All closed by default
+   */
+  initialQuestionIndex: {
+    type: Number,
+    default: null
   }
   
 }
