@@ -1,6 +1,6 @@
 {
   "name": "vue-faq-accordion",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Simple and smooth vue accordion. Perfect for your FAQ section.",
   "main": "dist/vue-faq-accordion.umd.js",
   "module": "dist/vue-faq-accordion.esm.js",
