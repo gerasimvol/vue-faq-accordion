@@ -16,12 +16,14 @@
     <br>
     <br>
 
-    <!-- WITH SCOPED SLOTS -->
+    <!-- WITH SCOPED SLOTS and INITIAL OPEN VALUES-->
     <VueFaqAccordion
         @categorySelect="onCategorySelect"
         @itemSelect="onItemSelect"
         :items="myItems"
         v-slot="itemData"
+        initialTab="Tab-2"
+        :initialQuestionIndex="1"
     >
       <!-- any html -->
       <!-- and item data if available via itemData -->

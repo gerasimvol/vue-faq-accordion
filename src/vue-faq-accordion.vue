@@ -24,9 +24,11 @@
           </div>
             <collapse-transition>
               <div v-if="i === activeQuestionIndex">
-                <slot v-bind="item">
-                  <div class="accordion__value" v-html="item[answerProperty]"></div>
-                </slot>
+                  <div class="accordion__value">
+                    <slot v-bind="item">
+                      <div v-html="item[answerProperty]"></div>
+                    </slot>
+                  </div>
               </div>
             </collapse-transition>
         </div>
@@ -106,6 +108,21 @@
       fontColor: {
         type: String,
         default: '#000000'
+      },
+      /**
+       * Opened by default tabName (category)
+       */
+      initialTab: {
+        type: String,
+        default: null
+      },
+      /**
+       * Opened by default question
+       * All closed by default
+       */
+      initialQuestionIndex: {
+        type: Number,
+        default: null
       }
     },
 
@@ -114,7 +131,8 @@
         const uniqueCategories = this.items
           .map(item => item[this.tabName])
           .filter((category, index, categories) => categories.indexOf(category) === index)
-        this.activeTab = uniqueCategories[0]
+        this.activeTab = this.initialTab || uniqueCategories[0]
+        this.activeQuestionIndex = this.initialQuestionIndex || null
         return uniqueCategories
       },
       categoryItems () {
