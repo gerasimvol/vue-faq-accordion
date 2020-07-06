@@ -122,7 +122,7 @@
        */
       initialQuestionIndex: {
         type: Number,
-        default: null
+        default: 0
       }
     },
 
@@ -132,7 +132,7 @@
           .map(item => item[this.tabName])
           .filter((category, index, categories) => categories.indexOf(category) === index)
         this.activeTab = this.initialTab || uniqueCategories[0]
-        this.activeQuestionIndex = this.initialQuestionIndex || null
+        this.activeQuestionIndex = this.initialQuestionIndex || 0
         return uniqueCategories
       },
       categoryItems () {
