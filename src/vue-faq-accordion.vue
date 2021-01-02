@@ -20,7 +20,7 @@
         >
           <div :class="generateQuestionClasses(i)" @click="makeActive(i)">
             <p class="accordion__title-text" v-html="item[questionProperty]"></p>
-            <button :class="generateButtonClasses(i)"></button>
+            <button :class="generateButtonClasses(i)">{{ accessibleName }}</button>
           </div>
             <collapse-transition>
               <div v-if="i === activeQuestionIndex">
@@ -123,6 +123,13 @@
       initialQuestionIndex: {
         type: Number,
         default: 0
+      },
+      /**
+       * Accessible name of button element
+       */
+      accessibleName: {
+        type: String,
+        default: 'open'
       }
     },
 
