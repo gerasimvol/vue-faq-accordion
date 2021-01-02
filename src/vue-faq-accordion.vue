@@ -20,7 +20,7 @@
         >
           <div :class="generateQuestionClasses(i)" @click="makeActive(i)">
             <p class="accordion__title-text" v-html="item[questionProperty]"></p>
-            <button :class="generateButtonClasses(i)">{{ accessibleName }}</button>
+            <button :class="generateButtonClasses(i)" :aria-label="ariaLabel"></button>
           </div>
             <collapse-transition>
               <div v-if="i === activeQuestionIndex">
@@ -125,9 +125,9 @@
         default: 0
       },
       /**
-       * Accessible name of button element
+       * Accessible name of button element as an aria-label
        */
-      accessibleName: {
+      ariaLabel: {
         type: String,
         default: 'open'
       }
