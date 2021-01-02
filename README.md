@@ -140,7 +140,14 @@ props: {
     type: Number,
     default: null
   }
-  
+
+  /**
+   * Accessible name of button element as an aria-label
+   */
+  ariaLabel: {
+    type: String,
+    default: 'open'
+  }
 }
 ```
 
